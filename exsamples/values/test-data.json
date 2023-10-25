@@ -1,0 +1,13 @@
+{
+    "hostname": "test-server",
+    "users": {
+        "root": {
+            "password": "hogehoge"
+        },
+        "operation_user": {
+            "name": "kukv",
+            "password": "fugafuga",
+            "public_key": "ssh-ed25519 examples a@examples.com"
+        }
+    }
+}

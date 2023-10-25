@@ -1,0 +1,24 @@
+#cloud-config
+hostname: test-server
+manage_etc_hosts: false
+
+timezone: JST
+locale: ja_JP.UTF-8
+
+ssh_pwauth: false
+disable_root: true
+
+chpasswd:
+  expire: false
+  users:
+    name: root
+    password: hogehoge
+
+users:
+  - name: kukv
+    groups: users,adm,dialout,audio,netdev,video,plugdev,cdrom,games,input,gpio,spi,i2c,render,sudo
+    shell: /bin/bash
+    lock_passwd: false
+    passwd: fugafuga
+    ssh_authorized_keys:
+      - ssh-ed25519 examples a@examples.com

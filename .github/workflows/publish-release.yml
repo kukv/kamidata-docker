@@ -25,12 +25,11 @@ jobs:
 
       - name: Build Docker Image
         run: |
-          export DOCKER_IMAGE_NAME=ghcr.io/$GITHUB_ACTOR/kamidata-cli
           docker build \
-            --tag ${DOCKER_IMAGE_NAME}:latest \
-            --tag ${DOCKER_IMAGE_NAME}:${{steps.get_version.outputs.tag}}
+          --tag ghcr.io/$GITHUB_ACTOR/kamidata-cli:latest \
+          --tag ghcr.io/$GITHUB_ACTOR/kamidata-cli:${{steps.get_version.outputs.tag}} \
           .
       - name: Push Docker Image
         run: |
-          export DOCKER_IMAGE_NAME=ghcr.io/$GITHUB_ACTOR/kamidata-cli
-          docker push -a ${DOCKER_IMAGE_NAME}
+          docker push ghcr.io/$GITHUB_ACTOR/kamidata-cli:latest
+          docker push ghcr.io/$GITHUB_ACTOR/kamidata-cli:${{steps.get_version.outputs.tag}}
